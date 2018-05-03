@@ -17,6 +17,35 @@ As an MVP, will implement the following features:
 * [Enzyme](https://www.npmjs.com/package/react-test-renderer) - JavaScript Testing utilities for React
 * [Webpack](https://www.npmjs.com/package/webpack-dev-server) - Updates the browser on changes
 * [Babel](https://babeljs.io/) - Convert JSX syntax and strip out type annotations
+---
+#### Installation
+To run this project you will need to download it onto your local machine and install all dependencies.
+Navigate inside the folder and install all dependencies by entering the following command on your terminal window:
+```
+npm install
+```
+Finally to run the server enter the following command in your terminal window:
+```
+npm start
+```
+This will run the server, open [http://localhost:8080](http://localhost:8080) to view it in the browser. If you make any changes and save the changes process will automatically refresh and you will be able to see the results in the browser.
+
+If you want to end the process hold `control` and press `c` in mac, if you are not using mac hold `ctrl` and press `c`.
 
 #### Testing component `location-details` with testing tool Enzyme used in conjunction with Jest:
-![jestLocation](./img/testLocationDetails.png "Testing component with Enzyme")
+```bash
+Apples-MBP:weatherApp macbook$ npm test
+
+> weatherappreact@1.0.0 test /Users/macbook/Documents/GitHub/projectsReact/weatherApp
+> jest
+
+ PASS  __tests__/components/location-details.test.jsx
+  component location-details
+    ✓ renders the passed city and country in a h1 tag (12ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.404s
+Ran all test suites.
+```

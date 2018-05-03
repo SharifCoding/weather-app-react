@@ -1,6 +1,7 @@
 // IMPORT LIBRARY
 import React from 'react';
 import ForecastSummary from './forecast-summary';
+import '../styles/forecast-summaries.scss';
 
 // Use JSX to render props.city and props.country
 const ForcastSummaries = props => (

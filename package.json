@@ -56,6 +56,9 @@
     "setupFiles": [
       "raf/polyfill",
       "<rootDir>/__jest__/setup.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^.+\\.s?css$": "<rootDir>/__jest__/stub.js"
+    }
   }
 }

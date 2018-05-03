@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LocationDetails from './location-details';
 import ForecastSummaries from './forecast-summaries';
+import '../styles/app.scss';
 
 // App component renders LocationDetails, ForecastSummaries using JSX
 const App = props => (

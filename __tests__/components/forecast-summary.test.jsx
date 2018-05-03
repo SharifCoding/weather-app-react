@@ -15,8 +15,41 @@ describe('component forecast-summary', () => {
       />
     ));
     // selected an element using `find` and use `text` method to get the text from the element
-    const text = wrapper.find('.forecast-summary__date').text();
+    const text = wrapper.find('.forecastDate').text();
     // normal Jest assertion to check what is expected
     expect(text).toEqual('mockDate');
+  });
+  it('renders the temperature', () => {
+    const wrapper = shallow((
+      <ForcastSummary
+        date="mockDate"
+        temperature="mockTemp"
+        description="mockDes"
+        icon="mockIcon"
+      />
+    ));
+    expect(wrapper.find('.forecastTemp').text()).toEqual('mockTemp');
+  });
+  it('renders the description', () => {
+    const wrapper = shallow((
+      <ForcastSummary
+        date="mockDate"
+        temperature="mockTemp"
+        description="mockDes"
+        icon="mockIcon"
+      />
+    ));
+    expect(wrapper.find('.forecastDes').text()).toEqual('mockDes');
+  });
+  it('renders the icon', () => {
+    const wrapper = shallow((
+      <ForcastSummary
+        date="mockDate"
+        temperature="mockTemp"
+        description="mockDes"
+        icon="mockIcon"
+      />
+    ));
+    expect(wrapper.find('.forecastIcon').text()).toEqual('mockIcon');
   });
 });

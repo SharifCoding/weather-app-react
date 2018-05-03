@@ -3,9 +3,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Use JSX to render props.city and props.country
-const ForcastSummary = props => <h1 className="forecast-summary">{props.city}, {props.country}</h1>;
+const ForcastSummary = props =>
+  (<div className="forecast-summary">
+    <div className="forecastDate">
+      <span>{props.date}</span>
+    </div>
+    <div className="forecastTemp">
+      <span>{props.temperature}</span>
+    </div>
+    <div className="forecastDes">
+      <span>{props.description}</span>
+    </div>
+    <div className="forecastIcon">
+      <span>{props.icon}</span>
+    </div>
+  </div>);
 
-// Add PropTypes for props.city and props.country which are both strings
+// Add PropTypes for props.date and props.temperature which are both numbers
 ForcastSummary.prototype = {
   date: PropTypes.number.isRequired,
   temperature: PropTypes.number.isRequired,

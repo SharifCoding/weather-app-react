@@ -34,8 +34,6 @@ If you want to end the process hold `control` and press `c` in mac, if you are n
 
 #### Testing component `location-details` with testing tool Enzyme used in conjunction with Jest:
 ```bash
-Apples-MBP:weatherApp macbook$ npm test
-
 > weatherappreact@1.0.0 test /Users/macbook/Documents/GitHub/projectsReact/weatherApp
 > jest
 
@@ -49,3 +47,23 @@ Snapshots:   0 total
 Time:        1.404s
 Ran all test suites.
 ```
+#### Testing component `forecast-summary` with testing tool Enzyme used in conjunction with Jest:
+```bash
+> weatherappreact@1.0.0 test /Users/macbook/Documents/GitHub/projectsReact/weatherApp
+> jest "forecast-summary"
+
+ PASS  __tests__/components/forecast-summary.test.jsx
+  component forecast-summary
+    ✓ renders the date (10ms)
+    ✓ renders the temperature (1ms)
+    ✓ renders the description (1ms)
+    ✓ renders the icon (1ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        1.869s
+Ran all test suites matching /forecast-summary/i.
+```
+#### Testing component `forecast-summaries` with React Chrome development extension:
+![App](./img/weatherAppForecastSummary.png "Weather App")

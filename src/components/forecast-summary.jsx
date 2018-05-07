@@ -1,12 +1,16 @@
 // IMPORT LIBRARY
 import React from 'react';
 import PropTypes from 'prop-types';
+import WeatherIcon from 'react-icons-weather';
+import Moment from 'moment';
 
 // Use JSX to render props.city and props.country
 const ForcastSummary = Props => (
   <div className="forecast-summary">
     <div className="forecastDate">
-      <span>{Props.date}</span>
+      {/* https://www.npmjs.com/package/moment */}
+      <span>{Moment(Props.date).format('DD/MM/YYYY')}</span>
+      {/* <span>{Props.date}</span> */}
     </div>
     <div className="forecastTemp">
       <span>{Props.temperature}</span>
@@ -15,7 +19,9 @@ const ForcastSummary = Props => (
       <span>{Props.description}</span>
     </div>
     <div className="forecastIcon">
-      <span>{Props.icon}</span>
+      {/* https://www.npmjs.com/package/react-icons-weather */}
+      <WeatherIcon name="owm" iconId={Props.icon} />
+      {/* <span>{Props.icon}</span> */}
     </div>
   </div>
 );

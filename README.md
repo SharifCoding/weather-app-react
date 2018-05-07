@@ -17,6 +17,9 @@ As an MVP, will implement the following features:
 * [Enzyme](https://www.npmjs.com/package/react-test-renderer) - JavaScript Testing utilities for React
 * [Webpack](https://www.npmjs.com/package/webpack-dev-server) - Updates the browser on changes
 * [Babel](https://babeljs.io/) - Convert JSX syntax and strip out type annotations
+* [React Weather icons](https://www.npmjs.com/package/react-icons-weather) - Weather icons meant for use with the OpenWeatherMap, Yahoo and DarkSky API
+* [moment](http://momentjs.com/docs/) - A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates
+
 ---
 #### Installation
 To run this project you will need to download it onto your local machine and install all dependencies.
@@ -70,4 +73,21 @@ Tests:       6 passed, 6 total
 Snapshots:   0 total
 Time:        1.316s
 Ran all test suites matching /forecast-summary/i.
+```
+#### Formatting the icons with [React Weather icons](https://www.npmjs.com/package/react-icons-weather) and date with [Moment.js](http://momentjs.com/docs/):
+```js
+...
+import WeatherIcon from 'react-icons-weather';
+import Moment from 'moment';
+
+const ForcastSummary = Props => (
+...
+    <div className="forecastDate">
+      <span>{Moment(Props.date).format('DD/MM/YYYY')}</span>
+    </div>
+  ...
+    <div className="forecastIcon">
+      <WeatherIcon name="owm" iconId={Props.icon} />
+    </div>
+  ...
 ```

@@ -1,6 +1,7 @@
 // IMPORT LIBRARY
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
+import Moment from 'moment';
 import ForcastSummary from '../../src/components/forecast-summary';
 import ForcastSummaries from '../../src/components/forecast-summaries';
 
@@ -27,35 +28,25 @@ const forecasts = [
 // TEST UNITS
 describe('component forecast-summary', () => {
   it('renders the date', () => {
+    const date = Moment('2018-05-07');
+    // normal Jest assertion to check what is expected
+    expect(date).toBeTruthy();
+  });
+  it('renders the temperature', () => {
     // variable `wrapper` a rendered component using Enzyme
     const wrapper = shallow((
       <ForcastSummary
-        date="mockDate"
         temperature="mockTemp"
         description="mockDes"
         icon="mockIcon"
       />
     ));
     // selected an element using `find` and use `text` method to get the text from the element
-    const text = wrapper.find('.forecastDate').text();
-    // normal Jest assertion to check what is expected
-    expect(text).toEqual('mockDate');
-  });
-  it('renders the temperature', () => {
-    const wrapper = shallow((
-      <ForcastSummary
-        date="mockDate"
-        temperature="mockTemp"
-        description="mockDes"
-        icon="mockIcon"
-      />
-    ));
     expect(wrapper.find('.forecastTemp').text()).toEqual('mockTemp');
   });
   it('renders the description', () => {
     const wrapper = shallow((
       <ForcastSummary
-        date="mockDate"
         temperature="mockTemp"
         description="mockDes"
         icon="mockIcon"
@@ -66,13 +57,12 @@ describe('component forecast-summary', () => {
   it('renders the icon', () => {
     const wrapper = shallow((
       <ForcastSummary
-        date="mockDate"
         temperature="mockTemp"
         description="mockDes"
         icon="mockIcon"
       />
     ));
-    expect(wrapper.find('.forecastIcon').text()).toEqual('mockIcon');
+    expect(wrapper.find('.forecastIcon').text()).toEqual('<WeatherIcon />');
   });
 });
 

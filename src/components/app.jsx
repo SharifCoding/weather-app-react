@@ -22,7 +22,7 @@ App.propTypes = {
     city: PropTypes.string,
     country: PropTypes.string,
   }).isRequired,
-  forecasts: PropTypes.array.isRequired,
+  forecasts: PropTypes.arrayOf.isRequired,
 };
 
 // EXPORT LIBRARY

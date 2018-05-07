@@ -47,23 +47,27 @@ Snapshots:   0 total
 Time:        1.404s
 Ran all test suites.
 ```
-#### Testing component `forecast-summary` with testing tool Enzyme used in conjunction with Jest:
+#### Testing component `forecast-summaries` with React Chrome development extension:
+![App](./img/weatherAppForecastSummary.png "Weather App")
+
+#### Testing `forecast-summary` both basic and rendered components:
 ```bash
 > weatherappreact@1.0.0 test /Users/macbook/Documents/GitHub/projectsReact/weatherApp
 > jest "forecast-summary"
 
  PASS  __tests__/components/forecast-summary.test.jsx
   component forecast-summary
-    ✓ renders the date (10ms)
-    ✓ renders the temperature (1ms)
+    ✓ renders the date (11ms)
+    ✓ renders the temperature (2ms)
     ✓ renders the description (1ms)
     ✓ renders the icon (1ms)
+  forecast-summary rendered components
+    ✓ renders correct amount of components (1ms)
+    ✓ passes correct values from each forecast (2ms)
 
 Test Suites: 1 passed, 1 total
-Tests:       4 passed, 4 total
+Tests:       6 passed, 6 total
 Snapshots:   0 total
-Time:        1.869s
+Time:        1.316s
 Ran all test suites matching /forecast-summary/i.
 ```
-#### Testing component `forecast-summaries` with React Chrome development extension:
-![App](./img/weatherAppForecastSummary.png "Weather App")

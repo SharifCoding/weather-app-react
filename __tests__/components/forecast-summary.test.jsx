@@ -2,6 +2,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Moment from 'moment';
+import WeatherIcon from 'react-icons-weather';
 import ForcastSummary from '../../src/components/forecast-summary';
 import ForcastSummaries from '../../src/components/forecast-summaries';
 
@@ -28,9 +29,16 @@ const forecasts = [
 // TEST UNITS
 describe('component forecast-summary', () => {
   it('renders the date', () => {
-    const date = Moment('2018-05-07');
-    // normal Jest assertion to check what is expected
-    expect(date).toBeTruthy();
+    const testDate = Moment(1525799105 * 1000);
+    const wrapper = shallow((
+      <ForcastSummary
+        date={testDate}
+        temperature="mockTemp"
+        description="mockDes"
+        icon="mockIcon"
+      />
+    ));
+    expect(wrapper.find('.forecastDate').text()).toEqual(testDate.format('DD/MM/YYYY'));
   });
   it('renders the temperature', () => {
     // variable `wrapper` a rendered component using Enzyme
@@ -62,7 +70,7 @@ describe('component forecast-summary', () => {
         icon="mockIcon"
       />
     ));
-    expect(wrapper.find('.forecastIcon').text()).toEqual('<WeatherIcon />');
+    expect(wrapper.find(WeatherIcon).prop('iconId')).toEqual('mockIcon');
   });
 });
 

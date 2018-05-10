@@ -7,25 +7,32 @@ import ForecastDetails from './forecast-details';
 
 import '../styles/app.scss';
 
-// App component renders LocationDetails, ForecastSummaries, and ForecastDetails
-const App = props => (
-  <div className="forecast">
-    <LocationDetails
-      city={props.location.city}
-      country={props.location.country}
-    />
-    <ForecastSummaries forecasts={props.forecasts} />
-    <ForecastDetails forecasts={props.forecasts[0]} />
-    {/* <ForecastDetails
-      date={props.forecast.date}
-      max={props.forecast.temperature.max}
-      min={props.forecast.temperature.min}
-      speed={props.forecast.wind.speed}
-      direction={props.forecast.wind.direction}
-      humidity={props.forecast.humidity}
-    /> */}
-  </div>
-);
+// class App component renders LocationDetails, ForecastSummaries, and ForecastDetails
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    // set an initial value of this.state to be an object with a selectedDate property
+    this.state = {
+      selectedDate: this.props.forecasts[0].date,
+    };
+  }
+  render() {
+    // pass forecast into `ForecastDetails` based on the selectedDate
+    const selectedForecast = this.props.forecasts.find(forecast => (
+      forecast.date === this.state.selectedDate));
+    return (
+      <div className="forecast">
+        <LocationDetails
+          city={this.props.location.city}
+          country={this.props.location.country}
+        />
+        <ForecastSummaries forecasts={this.props.forecasts} />
+        <ForecastDetails forecasts={selectedForecast} />
+      </div>
+    );
+  }
+}
+
 // PropTypes for the location prop use PropTypes.shape instead of PropTypes.objectOf
 // PropTypes.shape - object whose keys are known ahead of time and may represent different types
 App.propTypes = {
@@ -36,19 +43,6 @@ App.propTypes = {
   }).isRequired,
   // <ForecastSummaries>
   forecasts: PropTypes.arrayOf.isRequired,
-  // <ForecastDetails>
-  forecast: PropTypes.shape({
-    date: PropTypes.number,
-    temperature: PropTypes.shape({
-      max: PropTypes.number,
-      min: PropTypes.number,
-    }).isRequired,
-    wind: PropTypes.shape({
-      speed: PropTypes.number,
-      direction: PropTypes.string,
-    }).isRequired,
-    humidity: PropTypes.number,
-  }).isRequired,
 };
 
 // EXPORT LIBRARY

@@ -91,3 +91,5 @@ const ForcastSummary = Props => (
     </div>
   ...
 ```
+#### Added `forecast-details` stateful component:
+![App](./img/weatherForecastDetails.png "Detailed Weather App")

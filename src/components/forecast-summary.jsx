@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import WeatherIcon from 'react-icons-weather';
 import Moment from 'moment';
 
+import '../styles/forecast-summary.scss';
+
+
 // Use JSX to render props.city and props.country
 const ForcastSummary = Props => (
   <div className="forecast-summary">
@@ -13,7 +16,7 @@ const ForcastSummary = Props => (
       {/* <span>{Props.date}</span> */}
     </div>
     <div className="forecastTemp">
-      <span>{Props.temperature}</span>
+      <span>{Props.temperature} &deg;c</span>
     </div>
     <div className="forecastDes">
       <span>{Props.description}</span>

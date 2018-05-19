@@ -15,6 +15,13 @@ class App extends React.Component {
     this.state = {
       selectedDate: this.props.forecasts[0].date,
     };
+    this.handleForecastSelect = this.handleForecastSelect.bind(this);
+  }
+  // receives a date as a parameter and sets that date as the selected datein the component state
+  handleForecastSelect(date) {
+    this.setState({
+      selectedDate: date,
+    });
   }
   render() {
     // pass forecast into `ForecastDetails` based on the selectedDate
@@ -26,7 +33,11 @@ class App extends React.Component {
           city={this.props.location.city}
           country={this.props.location.country}
         />
-        <ForecastSummaries forecasts={this.props.forecasts} />
+        <ForecastSummaries
+          forecasts={this.props.forecasts}
+        // pass `this.handleForecastSelect` method into ForecastSummaries as prop `onForecastSelect`
+          onForecastSelect={this.handleForecastSelect}
+        />
         <ForecastDetails forecasts={selectedForecast} />
       </div>
     );

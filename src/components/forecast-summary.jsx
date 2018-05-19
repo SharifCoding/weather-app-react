@@ -26,6 +26,11 @@ const ForcastSummary = Props => (
       <WeatherIcon name="owm" iconId={Props.icon} />
       {/* <span>{Props.icon}</span> */}
     </div>
+    <div className="moreDetails">
+      {/* Adding the More Details button with event handler */}
+      {/* https://reactjs.org/docs/faq-functions.html */}
+      <button onClick={() => Props.onSelect(Props.date)}>More Details</button>
+    </div>
   </div>
 );
 
@@ -35,6 +40,7 @@ ForcastSummary.prototype = {
   temperature: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
+  onForecastSelect: PropTypes.number.isRequired,
 };
 
 // EXPORT LIBRARY

@@ -4,7 +4,6 @@ import ForecastSummary from './forecast-summary';
 
 import '../styles/forecast-summaries.scss';
 
-// Use JSX to render props.city and props.country
 const ForcastSummaries = Props => (
   <div className="forecast-summaries">
     {
@@ -15,6 +14,7 @@ const ForcastSummaries = Props => (
         description={forecast.description}
         icon={forecast.icon}
         temperature={forecast.temperature.max}
+        onSelect={Props.onForecastSelect}
       />
     ))
   }

@@ -93,3 +93,29 @@ const ForcastSummary = Props => (
 ```
 #### Added `forecast-details` stateful component:
 ![App](./img/weatherForecastDetails.png "Detailed Weather App")
+
+#### Making a HTTP request to retrieve some live weather data from the API:
+![App](./img/fetchingExternalData.png "Fetching External Data")
+Response Data Structure:
+```json
+{
+  "location": {
+    "city": "City name - String",
+    "country": "Country name - String",
+  },
+  "forecasts": [{
+    "date": "Forecast date (Unix Timestamp Milliseconds) - Integer",
+    "temperature": {
+      "max": "Max temperature for day (celcius) - Integer",
+      "min": "Min temperature for day (celcius) - Integer"
+    },
+    "wind": {
+      "speed": "Wind speed (mph) - Integer",
+      "direction": "Wind direction (e.g. n, sw) - String"
+    },
+    "humidity": "Humidity - Integer",
+    "description": "Overall description of weather - String",
+    "icon": "Icon ID - Number"
+  }]
+}
+```

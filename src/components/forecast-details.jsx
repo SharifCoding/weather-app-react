@@ -14,19 +14,19 @@ import '../styles/forecast-details.scss';
 const ForecastDetails = Props => (
   <div className="forecast-details">
     <div className="forecast-date">
-      <span>{Moment(Props.forecasts.date).format('DD/MM/YYYY')}</span>
+      <span>{Moment(Props.forecast.date).format('DD/MM/YYYY')}</span>
     </div>
     <div className="forecast-tempmax">
-      <span>Max Temperature: {Props.forecasts.temperature.max} &deg;c</span>
+      <span>Max Temperature: {Props.forecast.temperature.max} &deg;c</span>
     </div>
     <div className="forecast-tempmin">
-      <span>Min Temperature: {Props.forecasts.temperature.min} &deg;c</span>
+      <span>Min Temperature: {Props.forecast.temperature.min} &deg;c</span>
     </div>
     <div className="forecast-wind">
-      <span>Wind: {Props.forecasts.wind.speed}mph {Props.forecasts.wind.direction}</span>
+      <span>Wind: {Props.forecast.wind.speed}mph {Props.forecast.wind.direction}</span>
     </div>
     <div className="forecast-humidity">
-      <span>Humidity: {Props.forecasts.humidity}%</span>
+      <span>Humidity: {Props.forecast.humidity}%</span>
     </div>
   </div>
 );

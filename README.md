@@ -19,6 +19,7 @@ As an MVP, will implement the following features:
 * [Babel](https://babeljs.io/) - Convert JSX syntax and strip out type annotations
 * [React Weather icons](https://www.npmjs.com/package/react-icons-weather) - Weather icons meant for use with the OpenWeatherMap, Yahoo and DarkSky API
 * [moment](http://momentjs.com/docs/) - A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates
+* [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
 ---
 #### Installation

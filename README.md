@@ -97,26 +97,6 @@ const ForcastSummary = Props => (
 
 #### Making a HTTP request to retrieve some live weather data from the API:
 ![App](./img/fetchingExternalData.png "Fetching External Data")
-Response Data Structure:
-```json
-{
-  "location": {
-    "city": "City name - String",
-    "country": "Country name - String",
-  },
-  "forecasts": [{
-    "date": "Forecast date (Unix Timestamp Milliseconds) - Integer",
-    "temperature": {
-      "max": "Max temperature for day (celcius) - Integer",
-      "min": "Min temperature for day (celcius) - Integer"
-    },
-    "wind": {
-      "speed": "Wind speed (mph) - Integer",
-      "direction": "Wind direction (e.g. n, sw) - String"
-    },
-    "humidity": "Humidity - Integer",
-    "description": "Overall description of weather - String",
-    "icon": "Icon ID - Number"
-  }]
-}
-```
+
+#### Give `handleInputChange` method a parameter called `event`, and log `event.target.value`:
+![App](./img/step16Test.png "Fetching External Data")

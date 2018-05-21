@@ -48,11 +48,13 @@ class App extends React.Component {
       selectedDate: date,
     });
   }
+
   render() {
     // pass forecast into `ForecastDetails` based on the selectedDate
     const selectedForecast = (
       this.state.forecasts.find(forecast => forecast.date === this.state.selectedDate)
     );
+
     return (
       <div className="forecast">
         <LocationDetails
@@ -60,7 +62,8 @@ class App extends React.Component {
           country={this.state.location.country}
         />
         <SearchForm
-          city={this.state.location.city}
+          forecasts={this.state.forecasts}
+          location={this.state.location}
         />
         <ForecastSummaries
           forecasts={this.state.forecasts}
@@ -75,18 +78,6 @@ class App extends React.Component {
     );
   }
 }
-
-// PropTypes for the location prop use PropTypes.shape instead of PropTypes.objectOf
-// PropTypes.shape - object whose keys are known ahead of time and may represent different types
-// App.propTypes = {
-//   // <LocationDetails>
-//   location: PropTypes.shape({
-//     city: PropTypes.string,
-//     country: PropTypes.string,
-//   }).isRequired,
-//   // <ForecastSummaries>
-//   forecasts: PropTypes.arrayOf.isRequired,
-// };
 
 // EXPORT LIBRARY
 export default App;

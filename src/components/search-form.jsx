@@ -1,25 +1,42 @@
 // https://dev.to/sage911/how-to-write-a-search-component-with-suggestions-in-react-d20
+// https://github.com/react-toolbox/react-toolbox/issues/652
+
 // IMPORT LIBRARY
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import '../styles/search-form.scss';
 
 // Use JSX to render props.city
-const SearchForm = Props => (
-  <div className="search-form">
-    <input
-      className="search-city"
-      placeholder="Enter City..."
-    />
-    <button className="search-btn" onClick={() => Props.city}>Search</button>
-  </div>
-);
+class SearchForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
 
-// Add PropTypes for props.city which is string
-SearchForm.prototype = {
-  city: PropTypes.string.isRequired,
-};
+  // receives a event as a parameter in the component state
+  handleInputChange(event) {
+    // console.log(event.target.value);
+    this.setState({
+      searchText: event.target.value,
+    });
+  }
+  render() {
+    return (
+      <div className="search-form">
+        <input
+          className="search-city"
+          placeholder="Enter City..."
+          onChange={this.handleInputChange}
+          value={this.state.searchText}
+        />
+        <button className="search-btn" onClick={() => this.state.searchText}>Search</button>
+      </div>
+    );
+  }
+}
 
 // EXPORT LIBRARY
 export default SearchForm;

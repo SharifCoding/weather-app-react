@@ -23,12 +23,12 @@ class App extends React.Component {
       },
     };
     this.handleForecastSelect = this.handleForecastSelect.bind(this);
+    this.handleCitySubmit = this.handleCitySubmit.bind(this);
   }
 
   componentDidMount() {
     // componentDidMount; use axios to make a HTTP request for weather data from the following API
-    axios.get(`https://mcr-codes-weather.herokuapp.com/forecast?city=${this.state.location.city}`)
-    // axios.get('https://mcr-codes-weather.herokuapp.com/forecast')
+    axios.get('https://mcr-codes-weather.herokuapp.com/forecast')
       .then((response) => {
         // setState method; set values of this.state.forecasts and this.state.location
         this.setState({
@@ -48,6 +48,23 @@ class App extends React.Component {
       selectedDate: date,
     });
   }
+  handleCitySubmit(city) {
+    // const searchString = `https://mcr-codes-weather.herokuapp.com/forecast?city=${this.state.searchText}`;
+    // axios.get(searchString)
+    // console.log(`https://mcr-codes-weather.herokuapp.com/forecast?city=${this.state.searchText}`);
+    axios.get(`https://mcr-codes-weather.herokuapp.com/forecast?city=${city}`)
+      .then((response) => {
+        // console.log(response.data.location);
+        this.setState({
+          forecasts: response.data.forecasts,
+          location: response.data.location,
+          // `selectedDate` can only be set after you get the data from the API
+          selectedDate: response.data.forecasts[0].date,
+        });
+      }).catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
     // pass forecast into `ForecastDetails` based on the selectedDate
@@ -62,8 +79,7 @@ class App extends React.Component {
           country={this.state.location.country}
         />
         <SearchForm
-          forecasts={this.state.forecasts}
-          location={this.state.location}
+          handleCitySubmit={this.handleCitySubmit}
         />
         <ForecastSummaries
           forecasts={this.state.forecasts}

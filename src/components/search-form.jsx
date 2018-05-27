@@ -3,13 +3,14 @@
 
 // IMPORT LIBRARY
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import '../styles/search-form.scss';
 
 // Use JSX to render props.city
 class SearchForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchText: '',
     };
@@ -23,6 +24,7 @@ class SearchForm extends React.Component {
       searchText: event.target.value,
     });
   }
+
   render() {
     return (
       <div className="search-form">
@@ -32,11 +34,16 @@ class SearchForm extends React.Component {
           onChange={this.handleInputChange}
           value={this.state.searchText}
         />
-        <button className="search-btn" onClick={() => this.state.searchText}>Search</button>
+        <button className="search-btn" onClick={() => this.props.handleCitySubmit(this.state.searchText)}>Search</button>
       </div>
     );
   }
 }
+
+// Add PropTypes for handleCitySubmit
+SearchForm.propTypes = {
+  handleCitySubmit: PropTypes.func.isRequired,
+};
 
 // EXPORT LIBRARY
 export default SearchForm;

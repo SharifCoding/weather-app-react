@@ -102,3 +102,11 @@ const ForcastSummary = Props => (
 
 #### Give `handleInputChange` method a parameter called `event`, and log `event.target.value`:
 ![App](./img/step16Test.png "Fetching External Data")
+
+#### Deploying React App [Heroku](https://weather-react-axios.herokuapp.com)
+* React app needs to be built using webpack
+* Do this using postinstall script in package.json
+* Heroku is good at running servers - need to serve app with Express
+  * Express must listen on process.env.PORT
+  * Good option is to get all routes to render your index.html file
+  * Configure server to serve static files
